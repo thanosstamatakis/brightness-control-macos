@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B144775827309EB600E38C2B /* brightness_controlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144775727309EB600E38C2B /* brightness_controlApp.swift */; };
+		B144775827309EB600E38C2B /* BrightnessControllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144775727309EB600E38C2B /* BrightnessControllApp.swift */; };
 		B144775A27309EB600E38C2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144775927309EB600E38C2B /* ContentView.swift */; };
 		B144775C27309EB700E38C2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B144775B27309EB700E38C2B /* Assets.xcassets */; };
 		B144775F27309EB700E38C2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B144775E27309EB700E38C2B /* Preview Assets.xcassets */; };
 		B144776B27309EB800E38C2B /* brightness_controlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144776A27309EB800E38C2B /* brightness_controlTests.swift */; };
 		B144777627309EB800E38C2B /* brightness_controlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144777527309EB800E38C2B /* brightness_controlUITests.swift */; };
+		B1FC80A52731FFD500E111DF /* DDC.c in Sources */ = {isa = PBXBuildFile; fileRef = B1FC80A42731FFD500E111DF /* DDC.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		B144775427309EB600E38C2B /* brightness-control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "brightness-control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B144775727309EB600E38C2B /* brightness_controlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brightness_controlApp.swift; sourceTree = "<group>"; };
+		B144775727309EB600E38C2B /* BrightnessControllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessControllApp.swift; sourceTree = "<group>"; };
 		B144775927309EB600E38C2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B144775B27309EB700E38C2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B144775E27309EB700E38C2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -46,6 +47,9 @@
 		B144777127309EB800E38C2B /* brightness-controlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "brightness-controlUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B144777527309EB800E38C2B /* brightness_controlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brightness_controlUITests.swift; sourceTree = "<group>"; };
 		B144777727309EB800E38C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1FC80A22731FFD500E111DF /* brightness-control-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "brightness-control-Bridging-Header.h"; sourceTree = "<group>"; };
+		B1FC80A32731FFD500E111DF /* DDC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDC.h; sourceTree = "<group>"; };
+		B1FC80A42731FFD500E111DF /* DDC.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DDC.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +100,8 @@
 		B144775627309EB600E38C2B /* brightness-control */ = {
 			isa = PBXGroup;
 			children = (
-				B144775727309EB600E38C2B /* brightness_controlApp.swift */,
+				B1FC80A12731FCF100E111DF /* ddcctl */,
+				B144775727309EB600E38C2B /* BrightnessControllApp.swift */,
 				B144775927309EB600E38C2B /* ContentView.swift */,
 				B144775B27309EB700E38C2B /* Assets.xcassets */,
 				B144776027309EB700E38C2B /* Info.plist */,
@@ -130,6 +135,16 @@
 				B144777727309EB800E38C2B /* Info.plist */,
 			);
 			path = "brightness-controlUITests";
+			sourceTree = "<group>";
+		};
+		B1FC80A12731FCF100E111DF /* ddcctl */ = {
+			isa = PBXGroup;
+			children = (
+				B1FC80A32731FFD500E111DF /* DDC.h */,
+				B1FC80A42731FFD500E111DF /* DDC.c */,
+				B1FC80A22731FFD500E111DF /* brightness-control-Bridging-Header.h */,
+			);
+			path = ddcctl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +214,7 @@
 				TargetAttributes = {
 					B144775327309EB600E38C2B = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					B144776527309EB800E38C2B = {
 						CreatedOnToolsVersion = 12.5;
@@ -261,8 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FC80A52731FFD500E111DF /* DDC.c in Sources */,
 				B144775A27309EB600E38C2B /* ContentView.swift in Sources */,
-				B144775827309EB600E38C2B /* brightness_controlApp.swift in Sources */,
+				B144775827309EB600E38C2B /* BrightnessControllApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "brightness-control/brightness_control.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -433,6 +451,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "thanos.stamatakis.brightness-control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "brightness-control/ddcctl/brightness-control-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -442,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "brightness-control/brightness_control.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -457,6 +478,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "thanos.stamatakis.brightness-control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "brightness-control/ddcctl/brightness-control-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
