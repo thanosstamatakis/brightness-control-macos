@@ -13,7 +13,12 @@
 		B144775F27309EB700E38C2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B144775E27309EB700E38C2B /* Preview Assets.xcassets */; };
 		B144776B27309EB800E38C2B /* brightness_controlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144776A27309EB800E38C2B /* brightness_controlTests.swift */; };
 		B144777627309EB800E38C2B /* brightness_controlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B144777527309EB800E38C2B /* brightness_controlUITests.swift */; };
+		B1FB9B572739BF1F0037EFFB /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FB9B562739BF1F0037EFFB /* CustomWindow.swift */; };
+		B1FB9B59273A0DE10037EFFB /* HudIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FB9B58273A0DE10037EFFB /* HudIconView.swift */; };
 		B1FC80A52731FFD500E111DF /* DDC.c in Sources */ = {isa = PBXBuildFile; fileRef = B1FC80A42731FFD500E111DF /* DDC.c */; };
+		B1FC80AC273471E100E111DF /* DDCCIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FC80AB273471E100E111DF /* DDCCIScreen.swift */; };
+		B1FC80BA2735A3D300E111DF /* blurhud.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FC80B92735A3D300E111DF /* blurhud.m */; };
+		B1FC80C42737031900E111DF /* CaptureKeyboardEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FC80C32737031900E111DF /* CaptureKeyboardEvents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +52,18 @@
 		B144777127309EB800E38C2B /* brightness-controlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "brightness-controlUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B144777527309EB800E38C2B /* brightness_controlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brightness_controlUITests.swift; sourceTree = "<group>"; };
 		B144777727309EB800E38C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1FB9B562739BF1F0037EFFB /* CustomWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
+		B1FB9B58273A0DE10037EFFB /* HudIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudIconView.swift; sourceTree = "<group>"; };
 		B1FC80A22731FFD500E111DF /* brightness-control-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "brightness-control-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1FC80A32731FFD500E111DF /* DDC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDC.h; sourceTree = "<group>"; };
 		B1FC80A42731FFD500E111DF /* DDC.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DDC.c; sourceTree = "<group>"; };
+		B1FC80AB273471E100E111DF /* DDCCIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDCCIScreen.swift; sourceTree = "<group>"; };
+		B1FC80B427359E9D00E111DF /* CoreGraphicsPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreGraphicsPriv.h; sourceTree = "<group>"; };
+		B1FC80B527359ED800E111DF /* BezelServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezelServices.h; sourceTree = "<group>"; };
+		B1FC80B62735A02400E111DF /* OSD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSD.h; sourceTree = "<group>"; };
+		B1FC80B92735A3D300E111DF /* blurhud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blurhud.m; sourceTree = "<group>"; };
+		B1FC80BD2735A68E00E111DF /* blurhud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blurhud.h; sourceTree = "<group>"; };
+		B1FC80C32737031900E111DF /* CaptureKeyboardEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureKeyboardEvents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +114,14 @@
 		B144775627309EB600E38C2B /* brightness-control */ = {
 			isa = PBXGroup;
 			children = (
+				B1FC80B327359E2D00E111DF /* bezel */,
 				B1FC80A12731FCF100E111DF /* ddcctl */,
 				B144775727309EB600E38C2B /* BrightnessControllApp.swift */,
+				B1FB9B562739BF1F0037EFFB /* CustomWindow.swift */,
 				B144775927309EB600E38C2B /* ContentView.swift */,
+				B1FB9B58273A0DE10037EFFB /* HudIconView.swift */,
+				B1FC80C32737031900E111DF /* CaptureKeyboardEvents.swift */,
+				B1FC80AB273471E100E111DF /* DDCCIScreen.swift */,
 				B144775B27309EB700E38C2B /* Assets.xcassets */,
 				B144776027309EB700E38C2B /* Info.plist */,
 				B144776127309EB700E38C2B /* brightness_control.entitlements */,
@@ -145,6 +164,18 @@
 				B1FC80A22731FFD500E111DF /* brightness-control-Bridging-Header.h */,
 			);
 			path = ddcctl;
+			sourceTree = "<group>";
+		};
+		B1FC80B327359E2D00E111DF /* bezel */ = {
+			isa = PBXGroup;
+			children = (
+				B1FC80B427359E9D00E111DF /* CoreGraphicsPriv.h */,
+				B1FC80B527359ED800E111DF /* BezelServices.h */,
+				B1FC80B62735A02400E111DF /* OSD.h */,
+				B1FC80BD2735A68E00E111DF /* blurhud.h */,
+				B1FC80B92735A3D300E111DF /* blurhud.m */,
+			);
+			path = bezel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,9 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FB9B572739BF1F0037EFFB /* CustomWindow.swift in Sources */,
 				B1FC80A52731FFD500E111DF /* DDC.c in Sources */,
+				B1FC80BA2735A3D300E111DF /* blurhud.m in Sources */,
 				B144775A27309EB600E38C2B /* ContentView.swift in Sources */,
+				B1FC80C42737031900E111DF /* CaptureKeyboardEvents.swift in Sources */,
 				B144775827309EB600E38C2B /* BrightnessControllApp.swift in Sources */,
+				B1FC80AC273471E100E111DF /* DDCCIScreen.swift in Sources */,
+				B1FB9B59273A0DE10037EFFB /* HudIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;

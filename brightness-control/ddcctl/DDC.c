@@ -101,8 +101,8 @@ io_service_t IOFramebufferPortFromCGDisplayID(UInt32 displayID, CFStringRef disp
         if (CFDictionaryGetValueIfPresent(info, CFSTR(kDisplaySerialNumber), (const void**)&serialNumberRef))
             CFNumberGetValue(serialNumberRef, kCFNumberCFIndexType, &serialNumber);
 #ifdef DEBUG
-        printf("I: Attempting match for %s's IODisplayPort @ %s...\n",
-            CFStringGetCStringPtr(uuidStr, kCFStringEncodingUTF8), CFStringGetCStringPtr(location, kCFStringEncodingUTF8));
+//        printf("I: Attempting match for %s's IODisplayPort @ %s...\n",
+//            CFStringGetCStringPtr(uuidStr, kCFStringEncodingUTF8), CFStringGetCStringPtr(location, kCFStringEncodingUTF8));
 #endif
         if (displayLocation) {
             // we were provided with a specific ioreg location we suspect the targeted framebuffer to be attached to...
@@ -128,14 +128,14 @@ io_service_t IOFramebufferPortFromCGDisplayID(UInt32 displayID, CFStringRef disp
 #ifdef DEBUG
         // considering this IOFramebuffer as the match for the CGDisplay, dump out its information
         // compare with `make displaylist`
-        printf("\nFramebuffer: %s\n", name);
-        printf("%s\n", CFStringGetCStringPtr(ioRegPath, kCFStringEncodingUTF8));
-        printf("%s\n", CFStringGetCStringPtr(location, kCFStringEncodingUTF8));
-        printf("VN:%ld PN:%ld SN:%ld", vendorID, productID, serialNumber);
-        printf(" UN:%d", CGDisplayUnitNumber(displayID));
-        printf(" IN:%d", iter);
-        printf(" depID:%ld depIdx:%ld", dependID, dependIndex);
-        printf(" Serial:%s\n\n", CFStringGetCStringPtr(serial, kCFStringEncodingUTF8));
+//        printf("\nFramebuffer: %s\n", name);
+//        printf("%s\n", CFStringGetCStringPtr(ioRegPath, kCFStringEncodingUTF8));
+//        printf("%s\n", CFStringGetCStringPtr(location, kCFStringEncodingUTF8));
+//        printf("VN:%ld PN:%ld SN:%ld", vendorID, productID, serialNumber);
+//        printf(" UN:%d", CGDisplayUnitNumber(displayID));
+//        printf(" IN:%d", iter);
+//        printf(" depID:%ld depIdx:%ld", dependID, dependIndex);
+//        printf(" Serial:%s\n\n", CFStringGetCStringPtr(serial, kCFStringEncodingUTF8));
         CFRelease(location);
         CFRelease(serial);
 #endif
@@ -275,20 +275,20 @@ bool DDCRead(io_service_t framebuffer, struct DDCReadCommand *read) {
 
         if (result) { // checksum is ok
             if (i > 1) {
-                printf("D: Tries required to get data: %d (%ldns reply-timeout)\n", i, reply_timeout);
+//                printf("D: Tries required to get data: %d (%ldns reply-timeout)\n", i, reply_timeout);
             }
             break;
         }
 
         if (request.result == kIOReturnUnsupportedMode)
-            printf("E: Unsupported Transaction Type! \n");
+//            printf("E: Unsupported Transaction Type! \n");
 
         // reset values and return 0, if data reading fails
         if (i >= kMaxRequests) {
             read->success = false;
             read->max_value = 0;
             read->current_value = 0;
-            printf("E: No data after %d tries! (%ldns reply-timeout)\n", i, reply_timeout);
+//            printf("E: No data after %d tries! (%ldns reply-timeout)\n", i, reply_timeout);
             return 0;
         }
 
@@ -316,7 +316,7 @@ UInt32 SupportedTransactionType() {
                                       IOServiceNameMatching("IOFramebufferI2CInterface"), &io_objects);
 
     if (kr != KERN_SUCCESS) {
-        printf("E: Fatal - No matching service! \n");
+//        printf("E: Fatal - No matching service! \n");
         return 0;
     }
 
@@ -340,45 +340,45 @@ UInt32 SupportedTransactionType() {
              */
             if (types) {
 #ifdef DEBUG
-                printf("\nD: IOI2CTransactionTypes: 0x%02lx (%ld)\n", types, types);
+//                printf("\nD: IOI2CTransactionTypes: 0x%02lx (%ld)\n", types, types);
 
                 // kIOI2CNoTransactionType = 0
                 if ( 0 == ((1 << kIOI2CNoTransactionType) & (UInt64)types)) {
-                    printf("E: IOI2CNoTransactionType                   unsupported \n");
+//                    printf("E: IOI2CNoTransactionType                   unsupported \n");
                 } else {
-                    printf("D: IOI2CNoTransactionType                   supported \n");
+//                    printf("D: IOI2CNoTransactionType                   supported \n");
                     supportedType = kIOI2CNoTransactionType;
                 }
 
                 // kIOI2CSimpleTransactionType = 1
                 if ( 0 == ((1 << kIOI2CSimpleTransactionType) & (UInt64)types)) {
-                    printf("E: IOI2CSimpleTransactionType               unsupported \n");
+//                    printf("E: IOI2CSimpleTransactionType               unsupported \n");
                 } else {
-                    printf("D: IOI2CSimpleTransactionType               supported \n");
+//                    printf("D: IOI2CSimpleTransactionType               supported \n");
                     supportedType = kIOI2CSimpleTransactionType;
                 }
 
                 // kIOI2CDDCciReplyTransactionType = 2
                 if ( 0 == ((1 << kIOI2CDDCciReplyTransactionType) & (UInt64)types)) {
-                    printf("E: IOI2CDDCciReplyTransactionType           unsupported \n");
+//                    printf("E: IOI2CDDCciReplyTransactionType           unsupported \n");
                 } else {
-                    printf("D: IOI2CDDCciReplyTransactionType           supported \n");
+//                    printf("D: IOI2CDDCciReplyTransactionType           supported \n");
                     supportedType = kIOI2CDDCciReplyTransactionType;
                 }
 
                 // kIOI2CCombinedTransactionType = 3
                 if ( 0 == ((1 << kIOI2CCombinedTransactionType) & (UInt64)types)) {
-                    printf("E: IOI2CCombinedTransactionType             unsupported \n");
+//                    printf("E: IOI2CCombinedTransactionType             unsupported \n");
                 } else {
-                    printf("D: IOI2CCombinedTransactionType             supported \n");
+//                    printf("D: IOI2CCombinedTransactionType             supported \n");
                     //supportedType = kIOI2CCombinedTransactionType;
                 }
 
                 // kIOI2CDisplayPortNativeTransactionType = 4
                 if ( 0 == ((1 << kIOI2CDisplayPortNativeTransactionType) & (UInt64)types)) {
-                    printf("E: IOI2CDisplayPortNativeTransactionType    unsupported\n");
+//                    printf("E: IOI2CDisplayPortNativeTransactionType    unsupported\n");
                 } else {
-                    printf("D: IOI2CDisplayPortNativeTransactionType    supported \n");
+//                    printf("D: IOI2CDisplayPortNativeTransactionType    supported \n");
                     //supportedType = kIOI2CDisplayPortNativeTransactionType;
                     // http://hackipedia.org/Hardware/video/connectors/DisplayPort/VESA%20DisplayPort%20Standard%20v1.1a.pdf
                     // http://www.electronic-products-design.com/geek-area/displays/display-port
@@ -394,7 +394,8 @@ UInt32 SupportedTransactionType() {
                     supportedType = kIOI2CDDCciReplyTransactionType;
                 }
 #endif
-            } else printf("E: Fatal - No supported Transaction Types! \n");
+            }
+//            else printf("E: Fatal - No supported Transaction Types! \n");
 
             CFRelease(service_properties);
         }
